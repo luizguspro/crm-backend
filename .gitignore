@@ -1,0 +1,69 @@
+# ────────────── Node / npm ──────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# lock gerados por gerenciadores que você não usa
+# (comente/decomente conforme seu setup)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+
+# sessão Baileys
+auth_info_baileys/
+
+
+# ────────────── Builds / artefatos ──────────────
+dist/
+build/
+*.tsbuildinfo          # tsc incremental
+.tmp/
+temp/
+coverage/
+
+# ─────────────── OS / IDE ───────────────
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+ehthumbs.db
+# Linux
+*~                      # backups terminando com ~
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# IntelliJ / WebStorm
+.idea/
+
+# ────────────── Env / credenciais ──────────────
+.wwebjs_auth/          # sessão WhatsApp (para WWebJS)
+auth/                  # sessão Baileys (MultiFileAuth)
+openai_api_key.txt
+
+# ────────────── Docker / CI artefatos ──────────────
+docker-compose.override.yml
+*.local.yml
+*.log
+
+# ────────────── Outros ──────────────
+*.sqlite
+*.sqlite-journal
+*.lock
+*.pids
+*.pid
+
+# Logs custom
+logs/
+*.log
+
+# EditorConfig temp
+*.code-workspace

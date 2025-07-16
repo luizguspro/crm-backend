@@ -1,0 +1,2077 @@
+{
+  "tables": {
+    "automacao_execucoes": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "fluxo_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "entidade_tipo",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "entidade_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "log",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "jsonb"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "automacao_fluxos": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "nome",
+        "data_type": "character varying",
+        "character_maximum_length": 100,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "descricao",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "gatilho_tipo",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "gatilho_config",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "jsonb"
+      },
+      {
+        "column_name": "acoes",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "jsonb"
+      },
+      {
+        "column_name": "ativo",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "execucoes_total",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "ultima_execucao",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "bot_configuracoes": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "canal_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "mensagem_boas_vindas",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "tempo_resposta_inicial",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "5",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "horario_atendimento",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "jsonb"
+      },
+      {
+        "column_name": "respostas_faq",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "jsonb"
+      },
+      {
+        "column_name": "encaminhar_humano_palavras",
+        "data_type": "ARRAY",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "_text"
+      },
+      {
+        "column_name": "ativo",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "atualizado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "campos_customizados": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "nome",
+        "data_type": "character varying",
+        "character_maximum_length": 100,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "tipo",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "opcoes",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "jsonb"
+      },
+      {
+        "column_name": "obrigatorio",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "false",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "ordem",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "ativo",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "campos_personalizados": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "gen_random_uuid()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "nome",
+        "data_type": "character varying",
+        "character_maximum_length": 100,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "tipo",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": "'text'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "obrigatorio",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "false",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "opcoes",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "jsonb"
+      },
+      {
+        "column_name": "ativo",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "canais_integracao": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "tipo",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "nome",
+        "data_type": "character varying",
+        "character_maximum_length": 100,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "telefone",
+        "data_type": "character varying",
+        "character_maximum_length": 20,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "token_acesso",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "configuracoes",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "jsonb"
+      },
+      {
+        "column_name": "ativo",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "conectado",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "false",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "ultima_sincronizacao",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "contatos": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "nome",
+        "data_type": "character varying",
+        "character_maximum_length": 255,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "email",
+        "data_type": "character varying",
+        "character_maximum_length": 255,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "telefone",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "whatsapp",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "cpf_cnpj",
+        "data_type": "character varying",
+        "character_maximum_length": 20,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "data_nascimento",
+        "data_type": "date",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "date"
+      },
+      {
+        "column_name": "empresa",
+        "data_type": "character varying",
+        "character_maximum_length": 255,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "cargo",
+        "data_type": "character varying",
+        "character_maximum_length": 100,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "origem",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "score",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "ativo",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "atualizado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "campos_customizados",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "jsonb"
+      },
+      {
+        "column_name": "tags",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "jsonb"
+      }
+    ],
+    "contatos_campos_valores": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "contato_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "campo_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "valor",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "atualizado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "contatos_tags": [
+      {
+        "column_name": "contato_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "tag_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "conversas": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "contato_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "canal_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "canal_tipo",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": "'aberta'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "prioridade",
+        "data_type": "character varying",
+        "character_maximum_length": 20,
+        "is_nullable": "YES",
+        "column_default": "'normal'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "atribuido_para",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "primeira_mensagem_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "ultima_mensagem_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "tempo_primeira_resposta",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "tempo_resolucao",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "bot_ativo",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "false",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "arquivada",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "false",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "atualizado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "ultima_mensagem",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      }
+    ],
+    "empresas": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "nome",
+        "data_type": "character varying",
+        "character_maximum_length": 255,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "cnpj",
+        "data_type": "character varying",
+        "character_maximum_length": 20,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "telefone",
+        "data_type": "character varying",
+        "character_maximum_length": 20,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "email",
+        "data_type": "character varying",
+        "character_maximum_length": 255,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "endereco",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "plano",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": "'basico'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "ativo",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "atualizado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "mensagens": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "conversa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "remetente_tipo",
+        "data_type": "character varying",
+        "character_maximum_length": 20,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "remetente_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "conteudo",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "tipo_conteudo",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": "'texto'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "metadata",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "jsonb"
+      },
+      {
+        "column_name": "transcricao",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "lida",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "false",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "enviada",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "erro_envio",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "metricas_diarias": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "data",
+        "data_type": "date",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "date"
+      },
+      {
+        "column_name": "total_mensagens_recebidas",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "total_mensagens_enviadas",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "total_conversas_iniciadas",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "total_conversas_resolvidas",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "tempo_medio_resposta",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "tempo_medio_resolucao",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "novos_leads",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "negocios_criados",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "negocios_ganhos",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "valor_total_ganho",
+        "data_type": "numeric",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "numeric"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "negocios": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "contato_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "etapa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "titulo",
+        "data_type": "character varying",
+        "character_maximum_length": 255,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "valor",
+        "data_type": "numeric",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "numeric"
+      },
+      {
+        "column_name": "moeda",
+        "data_type": "character varying",
+        "character_maximum_length": 3,
+        "is_nullable": "YES",
+        "column_default": "'BRL'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "probabilidade",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "50",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "previsao_fechamento",
+        "data_type": "date",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "date"
+      },
+      {
+        "column_name": "responsavel_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "origem",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "motivo_perda",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "fechado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "ganho",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "atualizado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "negocios_historico": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "negocio_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "etapa_anterior_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "etapa_nova_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "usuario_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "comentario",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "notas": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "conteudo",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "tipo_entidade",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "entidade_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "usuario_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "atualizado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "pipeline_etapas": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "nome",
+        "data_type": "character varying",
+        "character_maximum_length": 100,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "descricao",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "cor",
+        "data_type": "character varying",
+        "character_maximum_length": 7,
+        "is_nullable": "YES",
+        "column_default": "'#3B82F6'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "ordem",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "tipo",
+        "data_type": "character varying",
+        "character_maximum_length": 20,
+        "is_nullable": "YES",
+        "column_default": "'normal'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "ativo",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "respostas_rapidas": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "titulo",
+        "data_type": "character varying",
+        "character_maximum_length": 100,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "conteudo",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "categoria",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "uso_contador",
+        "data_type": "integer",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "0",
+        "udt_name": "int4"
+      },
+      {
+        "column_name": "ativo",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "tags": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "nome",
+        "data_type": "character varying",
+        "character_maximum_length": 100,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "cor",
+        "data_type": "character varying",
+        "character_maximum_length": 7,
+        "is_nullable": "YES",
+        "column_default": "'#3B82F6'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "tarefas": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "titulo",
+        "data_type": "character varying",
+        "character_maximum_length": 255,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "descricao",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "tipo",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": "'tarefa'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "prioridade",
+        "data_type": "character varying",
+        "character_maximum_length": 20,
+        "is_nullable": "YES",
+        "column_default": "'normal'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "character_maximum_length": 50,
+        "is_nullable": "YES",
+        "column_default": "'pendente'::character varying",
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "data_vencimento",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "data_conclusao",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "responsavel_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "contato_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "negocio_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "criado_por",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "atualizado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ],
+    "usuarios": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "\"maya-crm\".uuid_generate_v4()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "empresa_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "nome",
+        "data_type": "character varying",
+        "character_maximum_length": 255,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "email",
+        "data_type": "character varying",
+        "character_maximum_length": 255,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "senha",
+        "data_type": "character varying",
+        "character_maximum_length": 255,
+        "is_nullable": "NO",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "cargo",
+        "data_type": "character varying",
+        "character_maximum_length": 100,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "avatar_url",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "telefone",
+        "data_type": "character varying",
+        "character_maximum_length": 20,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "varchar"
+      },
+      {
+        "column_name": "ativo",
+        "data_type": "boolean",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "true",
+        "udt_name": "bool"
+      },
+      {
+        "column_name": "ultimo_acesso",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "atualizado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "permissoes",
+        "data_type": "jsonb",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "'[]'::jsonb",
+        "udt_name": "jsonb"
+      },
+      {
+        "column_name": "tipo",
+        "data_type": "character varying",
+        "character_maximum_length": 20,
+        "is_nullable": "YES",
+        "column_default": "'usuario'::character varying",
+        "udt_name": "varchar"
+      }
+    ],
+    "valores_campos_personalizados": [
+      {
+        "column_name": "id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "NO",
+        "column_default": "gen_random_uuid()",
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "campo_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "contato_id",
+        "data_type": "uuid",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "uuid"
+      },
+      {
+        "column_name": "valor",
+        "data_type": "text",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": null,
+        "udt_name": "text"
+      },
+      {
+        "column_name": "criado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      },
+      {
+        "column_name": "atualizado_em",
+        "data_type": "timestamp without time zone",
+        "character_maximum_length": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP",
+        "udt_name": "timestamp"
+      }
+    ]
+  },
+  "relations": [
+    {
+      "table_name": "campos_personalizados",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "valores_campos_personalizados",
+      "column_name": "campo_id",
+      "foreign_table_name": "campos_personalizados",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "valores_campos_personalizados",
+      "column_name": "contato_id",
+      "foreign_table_name": "contatos",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "usuarios",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "contatos",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "tags",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "contatos_tags",
+      "column_name": "contato_id",
+      "foreign_table_name": "contatos",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "contatos_tags",
+      "column_name": "tag_id",
+      "foreign_table_name": "tags",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "campos_customizados",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "contatos_campos_valores",
+      "column_name": "contato_id",
+      "foreign_table_name": "contatos",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "contatos_campos_valores",
+      "column_name": "campo_id",
+      "foreign_table_name": "campos_customizados",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "canais_integracao",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "conversas",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "conversas",
+      "column_name": "contato_id",
+      "foreign_table_name": "contatos",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "conversas",
+      "column_name": "canal_id",
+      "foreign_table_name": "canais_integracao",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "conversas",
+      "column_name": "atribuido_para",
+      "foreign_table_name": "usuarios",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "mensagens",
+      "column_name": "conversa_id",
+      "foreign_table_name": "conversas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "respostas_rapidas",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "pipeline_etapas",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "negocios",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "negocios",
+      "column_name": "contato_id",
+      "foreign_table_name": "contatos",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "negocios",
+      "column_name": "etapa_id",
+      "foreign_table_name": "pipeline_etapas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "negocios",
+      "column_name": "responsavel_id",
+      "foreign_table_name": "usuarios",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "negocios_historico",
+      "column_name": "negocio_id",
+      "foreign_table_name": "negocios",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "negocios_historico",
+      "column_name": "etapa_anterior_id",
+      "foreign_table_name": "pipeline_etapas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "negocios_historico",
+      "column_name": "etapa_nova_id",
+      "foreign_table_name": "pipeline_etapas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "negocios_historico",
+      "column_name": "usuario_id",
+      "foreign_table_name": "usuarios",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "tarefas",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "tarefas",
+      "column_name": "responsavel_id",
+      "foreign_table_name": "usuarios",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "tarefas",
+      "column_name": "contato_id",
+      "foreign_table_name": "contatos",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "tarefas",
+      "column_name": "negocio_id",
+      "foreign_table_name": "negocios",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "tarefas",
+      "column_name": "criado_por",
+      "foreign_table_name": "usuarios",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "notas",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "notas",
+      "column_name": "usuario_id",
+      "foreign_table_name": "usuarios",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "automacao_fluxos",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "automacao_execucoes",
+      "column_name": "fluxo_id",
+      "foreign_table_name": "automacao_fluxos",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "bot_configuracoes",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "bot_configuracoes",
+      "column_name": "canal_id",
+      "foreign_table_name": "canais_integracao",
+      "foreign_column_name": "id"
+    },
+    {
+      "table_name": "metricas_diarias",
+      "column_name": "empresa_id",
+      "foreign_table_name": "empresas",
+      "foreign_column_name": "id"
+    }
+  ],
+  "analyzedAt": "2025-07-14T16:40:18.845Z"
+}
