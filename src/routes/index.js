@@ -6,11 +6,13 @@ const router = express.Router();
 const authRoutes = require('./auth');
 const dashboardRoutes = require('./dashboard');
 const contactsRoutes = require('./contacts');
+const pipelineRoutes = require('./pipeline'); // ADICIONAR ESTA LINHA
 
 // Usar rotas
 router.use('/auth', authRoutes);
 router.use('/dashboard', dashboardRoutes);
 router.use('/contacts', contactsRoutes);
+router.use('/pipeline', pipelineRoutes); // ADICIONAR ESTA LINHA
 
 // Rota de teste da API
 router.get('/', (req, res) => {
@@ -35,15 +37,21 @@ router.get('/', (req, res) => {
       },
       contacts: {
         'GET /contacts': 'Listar contatos',
-        'GET /contacts/:id': 'Detalhes do contato'
+        'GET /contacts/:id': 'Detalhes do contato',
+        'POST /contacts': 'Criar contato',
+        'PUT /contacts/:id': 'Atualizar contato',
+        'DELETE /contacts/:id': 'Excluir contato'
+      },
+      pipeline: {
+        'GET /pipeline/stages': 'Listar etapas do pipeline',
+        'GET /pipeline/deals': 'Listar negócios',
+        'POST /pipeline/deals': 'Criar negócio',
+        'PUT /pipeline/deals/:id': 'Atualizar negócio',
+        'PUT /pipeline/deals/:id/move': 'Mover negócio entre etapas',
+        'DELETE /pipeline/deals/:id': 'Excluir negócio'
       }
     }
   });
 });
-
-// TODO: Adicionar outras rotas
-// router.use('/messages', require('./messages'));
-// router.use('/pipeline', require('./pipeline'));
-// router.use('/tasks', require('./tasks'));
 
 module.exports = router;

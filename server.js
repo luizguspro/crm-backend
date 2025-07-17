@@ -2,57 +2,64 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
+const routes = require('./src/routes');
+const { testConnection } = require('./src/database');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Logging middleware
+// Middleware de logging
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
   next();
 });
 
-// Rotas
-const routes = require('./src/routes');
+// Testar conexão com banco
+testConnection();
+
+// Rotas da API
 app.use('/api', routes);
 
 // Rota de teste
 app.get('/', (req, res) => {
   res.json({ 
-    message: 'Maya CRM API',
+    message: 'Maya CRM API', 
     version: '1.0.0',
-    endpoints: {
-      auth: '/api/auth',
-      contacts: '/api/contacts',
-      messages: '/api/messages'
-    }
+    status: 'running' 
   });
 });
 
-// Error handling
+// Socket.io desabilitado temporariamente
+// TODO: Implementar Socket.io quando necessário
+
+// Tratamento de erro 404
+app.use((req, res) => {
+  // Ignorar logs de socket.io
+  if (!req.path.includes('socket.io')) {
+    console.log(`404 - Rota não encontrada: ${req.path}`);
+  }
+  res.status(404).json({ error: 'Rota não encontrada' });
+});
+
+// Tratamento de erros
 app.use((err, req, res, next) => {
-  console.error('Error:', err.stack);
+  console.error('Erro:', err);
   res.status(500).json({ 
-    error: 'Algo deu errado!',
+    error: 'Erro interno do servidor',
     message: err.message 
   });
 });
 
-// 404 handler
-app.use((req, res) => {
-  console.log('404 - Rota não encontrada:', req.path);
-  res.status(404).json({ 
-    error: 'Rota não encontrada',
-    path: req.path 
-  });
-});
-
+// Iniciar servidor
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
   console.log(`📍 URL: http://localhost:${PORT}`);
