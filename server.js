@@ -8,12 +8,43 @@ const { testConnection } = require('./src/database');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middlewares
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
-  credentials: true
-}));
+// Lista de origens permitidas
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'http://localhost:3000',
+  'https://maya-crm-frontend.netlify.app',
+  'https://maya-crm.netlify.app',
+  process.env.FRONTEND_URL
+].filter(Boolean); // Remove valores undefined/null
 
+// Configuração do CORS
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Permite requisições sem origin (Postman, apps mobile, etc)
+    if (!origin) {
+      return callback(null, true);
+    }
+    
+    // Verifica se a origem está na lista permitida
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      // Em desenvolvimento, aceita qualquer localhost
+      if (process.env.NODE_ENV !== 'production' && origin.includes('localhost')) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  exposedHeaders: ['X-Total-Count']
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
