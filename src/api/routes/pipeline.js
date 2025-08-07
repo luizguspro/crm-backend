@@ -2,14 +2,14 @@
 const express = require('express');
 const router = express.Router();
 const { Op } = require('sequelize');
-const { sequelize } = require('../../database');
+const { sequelize } = require('../../../../shared/database');
 const { 
   Contato, 
   Negocio, 
   PipelineEtapa,
   Conversa,
   Mensagem 
-} = require('../../models');
+} = require('../../../../shared/models');
 
 // Middleware temporário para empresa padrão
 const setDefaultEmpresa = (req, res, next) => {

@@ -7,7 +7,7 @@ const {
   Conversa, 
   Mensagem,
   Negocio 
-} = require('../../models');
+} = require('../../../../shared/models');
 
 // Middleware temporário para empresa padrão
 const setDefaultEmpresa = (req, res, next) => {

@@ -14,6 +14,7 @@ const allowedOrigins = [
   'http://localhost:5174',
   'http://localhost:3000',
   'https://maya-crm-frontend.netlify.app',
+  'https://68951caf55cbb45a563a36ce--maya-crm-frontend.netlify.app',
   'https://maya-crm.netlify.app',
   process.env.FRONTEND_URL
 ].filter(Boolean); // Remove valores undefined/null

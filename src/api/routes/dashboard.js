@@ -1,4 +1,4 @@
-// backend/src/routes/dashboard.js
+// backend/src/api/routes/dashboard.js
 const express = require('express');
 const router = express.Router();
 const { Sequelize } = require('sequelize');

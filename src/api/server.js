@@ -18,6 +18,7 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5174',
   'https://maya-crm-frontend.netlify.app',
+  'https://68951caf55cbb45a563a36ce--maya-crm-frontend.netlify.app',
   'https://maya-crm.netlify.app'
 ];
 
