@@ -6,6 +6,7 @@ const socketIo = require('socket.io');
 const path = require('path');
 const logger = require('../../../shared/utils/logger');
 const pipelineAutomation = require('../services/pipelineAutomation');
+const whatsappService = require('../services/whatsappService'); // ADICIONADO
 const { testConnection } = require('../../../shared/database');
 const initDatabase = require('../database/init');
 
@@ -77,7 +78,8 @@ app.get('/api/health', (req, res) => {
     status: 'ok', 
     timestamp: new Date(),
     database: 'connected',
-    automation: pipelineAutomation.isRunning ? 'running' : 'stopped'
+    automation: pipelineAutomation.isRunning ? 'running' : 'stopped',
+    whatsapp: whatsappService.isReady ? 'connected' : 'disconnected' // ADICIONADO
   });
 });
 
@@ -143,7 +145,8 @@ const routes = [
   { name: 'conversations', path: './routes/conversations', url: '/api/conversations' },
   { name: 'pipeline', path: './routes/pipeline', url: '/api/pipeline' },
   { name: 'contacts', path: './routes/contacts', url: '/api/contacts' },
-  { name: 'automation', path: './routes/automation', url: '/api/automation' }
+  { name: 'automation', path: './routes/automation', url: '/api/automation' },
+  { name: 'whatsapp', path: './routes/whatsapp', url: '/api/whatsapp' } // ADICIONADO
 ];
 
 let loadedRoutes = 0;
@@ -317,12 +320,31 @@ async function startServer() {
           logger.info(`   - POST /api/automation/run-now`);
         }
         
+        // ADICIONADO - Rotas do WhatsApp
+        if (!failedRoutes.includes('whatsapp')) {
+          logger.info(`   - GET  /api/whatsapp/status`);
+          logger.info(`   - POST /api/whatsapp/initialize`);
+          logger.info(`   - GET  /api/whatsapp/qr`);
+          logger.info(`   - POST /api/whatsapp/disconnect`);
+          logger.info(`   - POST /api/whatsapp/send`);
+          logger.info(`   - POST /api/whatsapp/send-bulk`);
+          logger.info(`   - GET  /api/whatsapp/conversations`);
+        }
+        
         // Iniciar automação do pipeline apenas se a rota foi carregada
         if (!failedRoutes.includes('pipeline') && !failedRoutes.includes('automation')) {
           logger.info('🤖 Iniciando serviço de automação do pipeline...');
           pipelineAutomation.start();
         } else {
           logger.warn('⚠️ Automação do pipeline não iniciada devido a rotas faltantes');
+        }
+        
+        // ADICIONADO - Inicializar WhatsApp automaticamente se configurado
+        if (process.env.WHATSAPP_AUTO_START === 'true' && !failedRoutes.includes('whatsapp')) {
+          logger.info('📱 Iniciando WhatsApp Service automaticamente...');
+          whatsappService.initialize(io);
+        } else {
+          logger.info('📱 WhatsApp em modo manual. Use /api/whatsapp/initialize para conectar');
         }
         
         resolve();
